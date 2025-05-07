@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Funções de Números e Strings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" role="main">
+        <h1>Funções de Números e Strings</h1>
+
+        <section class="section" aria-labelledby="section1-title">
+            <h2 id="section1-title">1) Maior de três números</h2>
+            <label for="maior-num1">Número 1:</label>
+            <input type="number" id="maior-num1" aria-describedby="maior-desc" />
+            <label for="maior-num2">Número 2:</label>
+            <input type="number" id="maior-num2" />
+            <label for="maior-num3">Número 3:</label>
+            <input type="number" id="maior-num3" />
+            <button onclick="exibirMaior()">Calcular Maior</button>
+            <div id="resultado-maior" class="result" aria-live="polite"></div>
+        </section>
+
+        <section class="section" aria-labelledby="section2-title">
+            <h2 id="section2-title">2) Três números em ordem crescente</h2>
+            <label for="ordena-num1">Número 1:</label>
+            <input type="number" id="ordena-num1" />
+            <label for="ordena-num2">Número 2:</label>
+            <input type="number" id="ordena-num2" />
+            <label for="ordena-num3">Número 3:</label>
+            <input type="number" id="ordena-num3" />
+            <button onclick="exibirOrdenados()">Ordenar Crescente</button>
+            <div id="resultado-ordenado" class="result" aria-live="polite"></div>
+        </section>
+
+        <section class="section" aria-labelledby="section3-title">
+            <h2 id="section3-title">3) Verificar palíndromo</h2>
+            <label for="palindromo-texto">Texto:</label>
+            <input type="text" id="palindromo-texto" />
+            <button onclick="exibirPalindromo()">Verificar</button>
+            <div id="resultado-palindromo" class="result" aria-live="polite"></div>
+        </section>
+
+        <section class="section" aria-labelledby="section4-title">
+            <h2 id="section4-title">4) Verificar se é subconjunto</h2>
+            <label for="subconjunto-principal">Palavra principal:</label>
+            <input type="text" id="subconjunto-principal" />
+            <label for="subconjunto-secundaria">Palavra para buscar:</label>
+            <input type="text" id="subconjunto-secundaria" />
+            <button onclick="exibirSubconjunto()">Verificar Subconjunto</button>
+            <div id="resultado-subconjunto" class="result" aria-live="polite"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
