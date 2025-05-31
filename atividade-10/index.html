@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Funcionário - 3 Formas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .method {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .method h2 {
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .result {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Objeto Funcionário - 3 Formas de Criar</h1>
+
+    <div class="method">
+        <h2>1. Sintaxe Literal de Objeto</h2>
+        <pre><code>const funcionario1 = {
+    matricula: "F12345",
+    nome: "Ana Pereira",
+    funcao: "Gerente de Vendas"
+};</code></pre>
+        <button onclick="showResult(1)">Mostrar Resultado</button>
+        <div id="result1" class="result" style="display: none;"></div>
+    </div>
+
+    <div class="method">
+        <h2>2. Função Construtora</h2>
+        <pre><code>function Funcionario(matricula, nome, funcao) {
+    this.matricula = matricula;
+    this.nome = nome;
+    this.funcao = funcao;
+}
+const funcionario2 = new Funcionario("F67890", "Carlos Santos", "Desenvolvedor");</code></pre>
+        <button onclick="showResult(2)">Mostrar Resultado</button>
+        <div id="result2" class="result" style="display: none;"></div>
+    </div>
+
+    <div class="method">
+        <h2>3. Object.create()</h2>
+        <pre><code>const funcionarioProto = {
+    exibirDados: function() {
+        return `Matrícula: ${this.matricula}, Nome: ${this.nome}, Função: ${this.funcao}`;
+    }
+};
+const funcionario3 = Object.create(funcionarioProto);
+funcionario3.matricula = "F54321";
+funcionario3.nome = "Mariana Oliveira";
+funcionario3.funcao = "Designer";</code></pre>
+        <button onclick="showResult(3)">Mostrar Resultado</button>
+        <div id="result3" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        // 1. Sintaxe literal de objeto
+        const funcionario1 = {
+            matricula: "F12345",
+            nome: "Ana Pereira",
+            funcao: "Gerente de Vendas"
+        };
+
+        // 2. Função construtora
+        function Funcionario(matricula, nome, funcao) {
+            this.matricula = matricula;
+            this.nome = nome;
+            this.funcao = funcao;
+        }
+        const funcionario2 = new Funcionario("F67890", "Carlos Santos", "Desenvolvedor");
+
+        // 3. Object.create() com protótipo
+        const funcionarioProto = {
+            exibirDados: function () {
+                return `Matrícula: ${this.matricula}, Nome: ${this.nome}, Função: ${this.funcao}`;
+            }
+        };
+        const funcionario3 = Object.create(funcionarioProto);
+        funcionario3.matricula = "F54321";
+        funcionario3.nome = "Mariana Oliveira";
+        funcionario3.funcao = "Designer";
+
+        function showResult(methodNumber) {
+            const resultDiv = document.getElementById(`result${methodNumber}`);
+
+            if (resultDiv.style.display === 'none') {
+                let content = '';
+                switch (methodNumber) {
+                    case 1:
+                        content = `Matrícula: ${funcionario1.matricula}<br>
+                                  Nome: ${funcionario1.nome}<br>
+                                  Função: ${funcionario1.funcao}<br><br>
+                                  Tipo: ${typeof funcionario1}`;
+                        break;
+                    case 2:
+                        content = `Matrícula: ${funcionario2.matricula}<br>
+                                  Nome: ${funcionario2.nome}<br>
+                                  Função: ${funcionario2.funcao}<br><br>
+                                  Tipo: ${typeof funcionario2}<br>
+                                  É instância de Funcionario? ${funcionario2 instanceof Funcionario}`;
+                        break;
+                    case 3:
+                        content = `Matrícula: ${funcionario3.matricula}<br>
+                                  Nome: ${funcionario3.nome}<br>
+                                  Função: ${funcionario3.funcao}<br><br>
+                                  Método do protótipo: ${funcionario3.exibirDados()}<br>
+                                  Tipo: ${typeof funcionario3}`;
+                        break;
+                }
+                resultDiv.innerHTML = content;
+                resultDiv.style.display = 'block';
+            } else {
+                resultDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
