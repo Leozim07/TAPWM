@@ -1,0 +1,131 @@
+:root {
+  --bg: #0f172a;         /* slate-900 */
+  --card: #111827;       /* gray-900 */
+  --muted: #94a3b8;      /* slate-400 */
+  --text: #e5e7eb;       /* gray-200 */
+  --accent: #22d3ee;     /* cyan-400 */
+  --accent-2: #a78bfa;   /* violet-400 */
+  --ring: rgba(34, 211, 238, 0.45);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(167,139,250,0.25), transparent 60%),
+              radial-gradient(1000px 700px at 110% 10%, rgba(34,211,238,0.25), transparent 60%),
+              var(--bg);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+form {
+  width: min(600px, 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  backdrop-filter: saturate(1.2) blur(8px);
+  padding: 28px;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 3.2vw, 28px);
+  color: var(--accent);
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(17, 24, 39, 0.65);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+  margin-top: 6px;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 6px var(--ring);
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+.radios {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radios label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.radios input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--muted);
+  display: grid;
+  place-items: center;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.radios input[type="radio"]:checked {
+  border-color: var(--accent-2);
+}
+.radios input[type="radio"]:checked::after {
+  content: "";
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
+button {
+  margin-top: 22px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+button:active {
+  transform: scale(0.97);
+}
