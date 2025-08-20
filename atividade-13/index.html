@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transformar Texto: Maiúsculas / Minúsculas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card" role="region" aria-labelledby="titulo">
+    <h1 id="titulo">Transformar conteúdo do Input</h1>
+    <p class="desc">Digite no campo abaixo e escolha uma das opções para transformar o texto automaticamente.</p>
+
+    <div class="field">
+      <label for="texto">Texto</label>
+      <div class="input">
+        <input id="texto" type="text" placeholder="Digite algo aqui…" autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="options" role="radiogroup" aria-label="Transformação de texto">
+      <label class="radio" for="opt-upper">
+        <input id="opt-upper" name="case" type="radio" value="upper" />
+        <span>MAIÚSCULAS</span>
+      </label>
+      <label class="radio" for="opt-lower">
+        <input id="opt-lower" name="case" type="radio" value="lower" />
+        <span>minúsculas</span>
+      </label>
+    </div>
+
+    <div class="footer">
+      <span>Feito com HTML, CSS e JavaScript</span>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
